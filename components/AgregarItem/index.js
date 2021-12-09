@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TextInput, Button, StyleSheet,TouchableOpacity,Text } from 'react-native'
+import {View, TextInput, StyleSheet,TouchableOpacity,Text } from 'react-native'
 
 export default function AddItem(props) {
 
@@ -8,7 +8,7 @@ export default function AddItem(props) {
     return (
         <View style={styles.containerInput} >
             <TextInput placeholder="Escriba su producto" onChangeText={(text) => setTextInput(text)} style={styles.input}/>
-            <TouchableOpacity style={styles.button} onPress={() => onAdd()}><Text style={styles.whiteText}>Add</Text></TouchableOpacity> 
+            <TouchableOpacity style={styles.button} onPress={() => onAdd()}><Text style={styles.whiteText}>Add</Text></TouchableOpacity>
         </View>
     )
 }

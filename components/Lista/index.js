@@ -3,17 +3,25 @@ import { FlatList, View, Text,TouchableOpacity, StyleSheet } from "react-native"
 
 export default function Lista(props) {
 
-    const { lista, onHandlerModal } = props
+    const { lista, onHandlerModal, onState } = props
 
     return (
         <>
         {lista.length > 0 
-        ? <FlatList data={lista} 
+        ? <FlatList 
+            data={lista} 
             renderItem={data => (
                 <View style={styles.containerItem}>
                     <Text style={[
-                        styles.textItem]}>{data.item.value}</Text>
-                     <TouchableOpacity style={styles.button} onPress={() => onHandlerModal(data.item)}><Text style={styles.whiteText}>X</Text></TouchableOpacity> 
+                        styles.textItem, 
+                        { 
+                            fontStyle: data.item.state == true ? 'italic' : 'normal',
+                            textDecorationLine: data.item.state == true ? 'line-through' : 'none' 
+                        }
+                        ]}>{data.item.value}</Text>
+                    
+                    <TouchableOpacity style={styles.button} onPress={() => (onState(data.item))}><Text style={styles.whiteText}>C</Text></TouchableOpacity> 
+                    <TouchableOpacity style={styles.button} onPress={() => onHandlerModal(data.item)}><Text style={styles.whiteText}>X</Text></TouchableOpacity> 
                 </View>
             )}
             keyExtractor={(item) => item.id}
