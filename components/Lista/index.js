@@ -20,7 +20,6 @@ export default function Lista(props) {
                         }
                         ]}>{data.item.value}</Text>
                     
-                    <TouchableOpacity style={styles.button} onPress={() => (onState(data.item))}><Text style={styles.whiteText}>C</Text></TouchableOpacity> 
                     <TouchableOpacity style={styles.button} onPress={() => onHandlerModal(data.item)}><Text style={styles.whiteText}>X</Text></TouchableOpacity> 
                 </View>
             )}

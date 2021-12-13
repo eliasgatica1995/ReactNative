@@ -14,7 +14,7 @@ export default function App() {
 
 
   const onAdd = () => {
-    setList([...lista, {id: idGenerator(), value: textInput, state: false }])
+    setList([...lista, {id: idGenerator(), value: textInput}])
   }
   const onHandlerModal = (item) => {
     setItemSelected(item)
@@ -24,11 +24,7 @@ export default function App() {
     setList(lista.filter(item => item.id != id))
     setModalState(false)
   }
- const onState = (item) =>{
-  setItemSelected(item)
-  onDelete(item.id)
-  setList([...lista, {id: item.id, value: item.textInput, state: true }])
- }
+ 
 
   function idGenerator() {
     var id = function() {
@@ -41,7 +37,7 @@ export default function App() {
     <View style={styles.container}>
       <ModalPopQ modalState={modalState} setModalState={setModalState} onDelete={onDelete} itemSelected={itemSelected}/>
       <AgregarItem setTextInput={setTextInput} onAdd={onAdd}/> 
-      <Lista lista={lista} onHandlerModal={onHandlerModal} onState={onState}/>
+      <Lista lista={lista} onHandlerModal={onHandlerModal}/>
     </View>
   );
 }
